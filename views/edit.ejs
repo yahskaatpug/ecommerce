@@ -1,0 +1,18 @@
+<% layout('layout') -%>
+<div class="container">
+	<div class="row">
+	<h1 style="text-align: center">Edit <%= products.product %></h1>
+	<div style="width:30%;margin:0 auto;">	
+	<form action="/products/<%= products._id %>?_method=PUT" method="POST">
+	
+		
+		<input class="form-control" type="text" name="product" value="<%= products.product %>">
+		<input class="form-control" type="text" name="image" value="<%= products.image %>">
+		<input class="form-control" type="text" name="cost" value="<%= products.cost %>">
+		<input class="form-control" type="text" name="features" value="<%= products.features %>">
+		<button class="btn btn-primary btn-large" >Update</button>
+	</form>
+	</div>
+        </div>
+</div>
+

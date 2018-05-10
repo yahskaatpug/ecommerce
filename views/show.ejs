@@ -1,0 +1,24 @@
+<% layout('layout') -%>
+<h1><%=products.product%></h1>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<img src="<%= products.image %>">
+<h8>Retailer <em><%=products.author.username%></em></h8>
+</div>
+<div>
+<header>
+<h7><%=products.cost%></h7>
+<p><%=products.features%></p>
+</header>
+<div>
+<a class="btn btn-warning" href="/products/<%= products._id %>/index">Buy</a>
+</div>
+<% if(currentUser && products.author.username === currentUser.username){ %>
+<a class="btn btn-warning" href="/products/<%= products._id %>/edit">Edit</a>
+<form style="display:inline" action="/products/<%= products._id %>?_method=DELETE" method="POST">
+	<button class="btn btn-danger">Delete</button>
+</form>
+   <%}%>
+</div>
+</div>

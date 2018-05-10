@@ -1,0 +1,44 @@
+<% layout('layout') -%>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+		<h1>Welcome To Products</h1>
+<p>
+	<a class="btn btn-primary btn-large" href="/products/new">Add New Product</a>
+</p>
+	</div>
+<p><form action='/products' method='GET' class='form-inline'>
+	<div class='form-group'>
+		<input class="form-control" type='text' name="search" placeholder="product search.."	>
+		<button class="btn btn-primary btn-large">Search</button>
+	</div>
+</form>
+</p>
+	</header>
+<header class="jumbotron">
+		<div class="container">
+<div class="row" text-center" style="display:flex; flex-wrap:wrap;">
+	
+	<% products.forEach(function(product){ %>
+		<div class="col-md-3 col-sm-6">
+		<div class="thumbnail">
+		<img src="<%= product.image %>">
+		<div class="caption">
+			<h6><%= product.product %></h6>
+		</div>
+		<div class="caption">
+			<h6><%= product.cost %></h6>
+		</div>
+		<p>
+		<a class="btn btn-primary btn-large" href="/products/<%=product._id%>">MoreInfo</a></p>
+		
+		</div>
+		</div>
+	<% }); %>
+	</div>
+	
+</div>
+</header>
+</div>
+<form action ="/products/<%=products._id%> >
